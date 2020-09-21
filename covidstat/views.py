@@ -42,10 +42,10 @@ def each_country(request):
                         'data':[deaths['value']],
                         'color' : '#ff5640'
                     }
-
+                    country = country_name
                     chart = {
                         'chart':{'type':'column'},
-                        'title':{'text':'COVID-19 Trend in Chart'},
+                        'title':{'text':'COVID-19 Stats in %s'%(country_name)},
                         # 'xAxis':{'categories':categories},
                         'series':[confirmed_case,recovered_case,deaths_case]
                     }
