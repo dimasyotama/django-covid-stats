@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import requests
 import json
+import datetime
 # Create your views here.
 
 def each_country(request):
@@ -9,6 +10,8 @@ def each_country(request):
     confirmed_worldwide = data_worldwide['confirmed']
     recovered_worldwide = data_worldwide['recovered']
     deaths_worldwide = data_worldwide['deaths']
+    date_and_time = datetime.datetime.now()
+    datetime_now = date_and_time.strftime('%Y-%m-%d %H:%M') 
     country_name = {}
     if 'country' in request.GET:
         country_name = request.GET['country']
@@ -57,6 +60,10 @@ def each_country(request):
                     context = {
                         'navs':'graphics',
                         'chart':dump_the_data,
+                        'confirmed_value_worldwide':confirmed_worldwide['value'],
+                        'recovered_value_worldwide':recovered_worldwide['value'],
+                        'datetime_local':datetime_now,
+                        'death_value_worldwide':deaths_worldwide['value'],
                     }
                     print(context)
                     return render(request,'results.html',context)
@@ -82,4 +89,9 @@ def each_country(request):
                     )
         
     return render(request,'corona.html',{
+         'confirmed_value_worldwide':confirmed_worldwide['value'],
+         'recovered_value_worldwide':recovered_worldwide['value'],
+         'last_update_worldwide':data_worldwide['lastUpdate'],
+         'death_value_worldwide':deaths_worldwide['value'],
+         'datetime_local':datetime_now
             })

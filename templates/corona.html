@@ -42,6 +42,39 @@
       <div class="row">
         <div class="col-xl-9 mx-auto">
           <h1 style="color:black;padding-top: 150px;font-family: 'Grandstander', cursive;" class="mb-5">COVID-19 Statistics Checker</h1>
+          <p style="color: black;font-family: 'Grandstander', cursive;">Last Update: {{datetime_local}}</p>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-footer ">
+                    <div class="stats">
+                      <p style="font-family: 'Grandstander', cursive;"">Worldwide Recovered : {{ recovered_value_worldwide }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-footer ">
+                    <div class="stats">
+                      <p style="font-family: 'Grandstander', cursive;"">Worldwide Confirmed : {{ confirmed_value_worldwide }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                  <div class="card-footer ">
+                    <div class="stats">
+                      <p style="font-family: 'Grandstander', cursive;"">Worldwide Deaths : {{ death_value_worldwide }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
         <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
 
@@ -51,7 +84,7 @@
                 <input type="search" class="form-control mb-4" placeholder="Search By Country" name="country" required = required>
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-sm btn-round peach-gradient-rgba">Search</button>
+                <button style="font-size:12px;font-family: 'Grandstander', cursive;"" type="submit" class="btn btn-block btn-sm btn-round peach-gradient-rgba">Search</button>
                 <br>
               </div>
             </div>
