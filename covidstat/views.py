@@ -27,18 +27,22 @@ def each_country(request):
                     confirmed = data2['confirmed']
                     recovered = data2['recovered']
                     deaths = data2['deaths']
+                    list_of_categories = ["Case Confirmed","Case Recovered","Deaths Case"]
+                    categories = list()
+                    for i in list_of_categories:
+                        categories.append(i)
                     confirmed_case = {
-                        'name':'Case Confirmed',
+                        'name':list_of_categories[0],
                         'data': [confirmed['value']],
                         'color':'#ffe37d'
                     }
                     recovered_case = {
-                        'name':'Case Recoverd',
+                        'name':list_of_categories[1],
                         'data':[recovered['value']],
                         'color': '#9cff6e'
                     }
                     deaths_case = {
-                        'name': 'Deaths Case',
+                        'name': list_of_categories[2],
                         'data':[deaths['value']],
                         'color' : '#ff5640'
                     }
@@ -46,15 +50,15 @@ def each_country(request):
                     chart = {
                         'chart':{'type':'column'},
                         'title':{'text':'COVID-19 Stats in %s'%(country_name)},
-                        # 'xAxis':{'categories':categories},
+                        # 'xAxis':{'categories':'%s'%()},
                         'series':[confirmed_case,recovered_case,deaths_case]
                     }
                     dump_the_data = json.dumps(chart)
                     context = {
                         'navs':'graphics',
-                        'chart':dump_the_data
+                        'chart':dump_the_data,
                     }
-                    print(dump_the_data)
+                    print(context)
                     return render(request,'results.html',context)
                 
                 else:

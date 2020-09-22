@@ -1,10 +1,11 @@
 {% extends 'corona.html' %}
+
 {% block content %}
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Graphs</h4>
+                <h4 style="font-family: 'Grandstander', cursive;" class="card-title">Graphs</h4>
             </div>
             <div class="card-body">
               <div id="container"></div>
@@ -15,7 +16,11 @@
 {% endblock content %}
 
 {% block script %}
-   <script>
-        Highcharts.chart('container', {{ chart|safe }});
-   </script>
+<script>
+    Highcharts.chart('container', {{ chart|safe }});
+</script>
 {% endblock script %}
+    
+
+    
+
