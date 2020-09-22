@@ -17,23 +17,23 @@ def each_country(request):
         country_name = request.GET['country']
         country_name = country_name.title()
         print(country_name)
-        url1 = 'https://covid19.mathdro.id/api/countries'
-        response1 = requests.get(url1)
-        data1 = response1.json()
+        url_catch_1 = 'https://covid19.mathdro.id/api/countries'
+        response_get_url = requests.get(url_catch_1)
+        data_json_1 = response_get_url.json()
         countries_name = data1['countries']
         for i in countries_name:
             try:
                 if country_name.title() == i['name'] or country_name.upper() != i['iso2'] or country_name.upper() != i['iso3']:
-                    url2 = 'https://covid19.mathdro.id/api/countries/%s' % country_name
-                    response2 = requests.get(url2)
-                    data2 = response2.json()
-                    confirmed = data2['confirmed']
-                    recovered = data2['recovered']
-                    deaths = data2['deaths']
-                    list_of_categories = ["Case Confirmed","Case Recovered","Deaths Case"]
-                    categories = list()
-                    for i in list_of_categories:
-                        categories.append(i)
+                    url_catch_2 = 'https://covid19.mathdro.id/api/countries/%s' % country_name
+                    response_get_url_2 = requests.get(url2)
+                    data_json_2 = response_get_url_2.json()
+                    confirmed = data_json_2['confirmed']
+                    recovered = data_json_2['recovered']
+                    deaths = data_json_2['deaths']
+                    # list_of_categories = ["Case Confirmed","Case Recovered","Deaths Case"]
+                    # categories = list()
+                    # for i in list_of_categories:
+                    #     categories.append(i)
                     confirmed_case = {
                         'name':list_of_categories[0],
                         'data': [confirmed['value']],
