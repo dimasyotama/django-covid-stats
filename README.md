@@ -5,8 +5,7 @@ Project is created with
 * [Bootstrap 4](https://getbootstrap.com/)
 * [API from mathdroid](https://github.com/mathdroid/covid-19-api)
 
-This is a application to check covid stats confirmed every country around the world.For Backend using Django Framework and Front End using Bootstrap and also i use openweather for consume the API
-i put requirements.txt for the requirement that i have for this application.
+This is a application to check covid stats confirmed every country around the world.For Backend using Django Framework and Front End using Boostrap and other third framework source by Bootstrap,I put requirements.txt for the requirement that i have for this application.
 
 How to use or install this app on your computer?
 ### 1. Install the requirement.txt on your computer using pip
@@ -33,3 +32,5 @@ Because i use mysql for the database you can change the database name,host,port,
 
 
 That's it for the guideline. I hope you enjoy.... 
+
+### Feel Free to contributing on this project
