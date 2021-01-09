@@ -8,19 +8,36 @@
                 <h4 style="font-family: 'Grandstander', cursive;" class="card-title">Graphs</h4>
             </div>
             <div class="card-body">
-              <div id="container"></div>
+                <canvas id="pie-chart"></canvas>
             </div>
         </div>
     </div>
 </div>
 {% endblock content %}
-
 {% block script %}
 <script>
-    Highcharts.chart('container', {{ chart|safe }});
-</script>
+
+    var config = {
+      type: 'doughnut',
+      data: {
+        datasets: [{
+          data: {{ data|safe }},
+          backgroundColor: [
+            '#557571', '#d2e603', '#ff4646'
+          ],
+        }],
+        labels: {{ categories|safe }}
+      },
+      options: {
+          responsive: true
+      }
+    };
+
+    window.onload = function() {
+      var ctx = document.getElementById('pie-chart').getContext('2d');
+      window.myPie = new Chart(ctx, config);
+    };
+
+  </script>
+
 {% endblock script %}
-    
-
-    
-

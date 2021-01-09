@@ -30,43 +30,21 @@ def each_country(request):
                     confirmed = data_json_2['confirmed']
                     recovered = data_json_2['recovered']
                     deaths = data_json_2['deaths']
-                    print(confirmed)
-                    # list_of_categories = ["Case Confirmed","Case Recovered","Deaths Case"]
-                    # categories = list()
-                    # for i in list_of_categories:
-                    #     categories.append(i)
-                    confirmed_case = {
-                        'name':list_of_categories[0],
-                        'data': [confirmed['value']],
-                        'color':'#ffe37d'
-                    }
-                    recovered_case = {
-                        'name':list_of_categories[1],
-                        'data':[recovered['value']],
-                        'color': '#9cff6e'
-                    }
-                    deaths_case = {
-                        'name': list_of_categories[2],
-                        'data':[deaths['value']],
-                        'color' : '#ff5640'
-                    }
-                    country = country_name
-                    chart = {
-                        'chart':{'type':'column'},
-                        'title':{'text':'COVID-19 Stats in %s'%(country_name)},
-                        # 'xAxis':{'categories':'%s'%()},
-                        'series':[confirmed_case,recovered_case,deaths_case]
-                    }
-                    dump_the_data = json.dumps(chart)
+                    categories = list()
+                    data_require = list()
+                    categories.extend(["Confirmed","Recoverd","Deaths"])
+                    print(categories)
+                    data_require.extend([confirmed['value'],recovered['value'],deaths['value']])
+                    
                     context = {
-                        'navs':'graphics',
-                        'chart':dump_the_data,
+                        'title':"Corona Statistics from %s" %(country_name),
+                        'categories':categories,
+                        'data':data_require,
                         'confirmed_value_worldwide':confirmed_worldwide['value'],
                         'recovered_value_worldwide':recovered_worldwide['value'],
                         'datetime_local':datetime_now,
                         'death_value_worldwide':deaths_worldwide['value'],
                     }
-                    print(dump_the_data)
                     return render(request,'results.html',context)
                 
                 else:

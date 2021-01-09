@@ -23,9 +23,6 @@
   <!-- <link rel="stylesheet" href="{% static 'analisis_sentiment/css/mdb.min.css' %}"> -->
   <link rel="stylesheet" href="{% static 'css/paper-dashboard.min.css' %}">
   <link href="{% static 'css/paper-dashboard.css' %}" rel="stylesheet" />
-  <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap4.css' %}">
-  <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap4.min.css' %}">
-  <link rel="stylesheet" href="{% static 'css/dataTables.bootstrap.min.css' %}">
   <link rel="stylesheet" href="{% static 'css/Chart.min.css' %}">
   <style>
     ::placeholder{
@@ -49,7 +46,7 @@
                 <div class="card card-stats">
                   <div class="card-footer ">
                     <div class="stats">
-                      <p style="font-family: 'Grandstander', cursive;"">Worldwide Recovered : {{ recovered_value_worldwide }}</p>
+                      <p style="font-family: 'Grandstander', cursive;"">Worldwide Recovered :</br> {{ recovered_value_worldwide }}</p>
                     </div>
                   </div>
                 </div>
@@ -58,7 +55,7 @@
                 <div class="card card-stats">
                   <div class="card-footer ">
                     <div class="stats">
-                      <p style="font-family: 'Grandstander', cursive;"">Worldwide Confirmed : {{ confirmed_value_worldwide }}</p>
+                      <p style="font-family: 'Grandstander', cursive;"">Worldwide Confirmed :</br> {{ confirmed_value_worldwide }}</p>
                     </div>
                   </div>
                 </div>
@@ -67,7 +64,7 @@
                 <div class="card card-stats">
                   <div class="card-footer ">
                     <div class="stats">
-                      <p style="font-family: 'Grandstander', cursive;"">Worldwide Deaths : {{ death_value_worldwide }}</p>
+                      <p style="font-family: 'Grandstander', cursive;"">Worldwide Deaths :</br> {{ death_value_worldwide }}</p>
                     </div>
                   </div>
                 </div>
@@ -99,7 +96,7 @@
   </header>
 </body>
 
-<script src="{% static 'js/core/jquery.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
 <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
 <script src="{% static 'js/dataTables.bootstrap4.min.js' %}"></script>
@@ -112,16 +109,17 @@
 <script src="{% static 'js/moment.min.js' %}"></script>
 <script src="{% static 'js/paper-dashboard.min.js' %}" type="text/javascript"></script>
 <script src="{% static 'js/mdb.min.js' %}"></script>
-<script src="{% static 'js/highcharts.src.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script>
-   var titleText = document.title;
-   function titleMarquee() {
+    var titleText = document.title;
+    function titleMarquee() {
       titleText = titleText.substring(1, titleText.length) + titleText.substring(0, 1);
       document.title = titleText;
       setTimeout("titleMarquee()", 450);
     }
 
 </script>
+
 {% block script %}
 {% endblock script %}
 </html>
