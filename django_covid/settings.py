@@ -28,9 +28,9 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = '*r^vu)fpe2hz!n91s5$@c$r*i4=(8q3z*#i!=_fx8v#ig)#e#3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['covid19statsdj.herokuapp.com']
+ALLOWED_HOSTS = ['covid19statsdj.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
@@ -89,9 +89,7 @@ WSGI_APPLICATION = 'django_covid.wsgi.application'
 # }
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL')
-    )
+    'default': dj_database_url.config()
 }
 
 # Password validation
@@ -129,9 +127,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
