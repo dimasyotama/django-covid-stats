@@ -16,7 +16,6 @@ def each_country(request):
     if 'country' in request.GET:
         country_name = request.GET['country']
         country_name = country_name.title()
-        # print(country_name)
         url_catch_1 = 'https://covid19.mathdro.id/api/countries'
         response_get_url = requests.get(url_catch_1)
         data_json_1 = response_get_url.json()
@@ -33,9 +32,7 @@ def each_country(request):
                     categories = list()
                     data_require = list()
                     categories.extend(["Confirmed","Recoverd","Deaths"])
-                    print(categories)
                     data_require.extend([confirmed['value'],recovered['value'],deaths['value']])
-                    
                     context = {
                         'title':"Corona Statistics from %s" %(country_name),
                         'categories':categories,
