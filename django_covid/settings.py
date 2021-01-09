@@ -28,9 +28,9 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = '*r^vu)fpe2hz!n91s5$@c$r*i4=(8q3z*#i!=_fx8v#ig)#e#3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['covid19statsdj.herokuapp.com']
 
 
 # Application definition
