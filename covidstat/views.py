@@ -37,6 +37,7 @@ def each_country(request):
                         'title':"Corona Statistics from %s" %(country_name),
                         'categories':categories,
                         'data':data_require,
+                        'countries_name':country_name,
                         'confirmed_value_worldwide':confirmed_worldwide['value'],
                         'recovered_value_worldwide':recovered_worldwide['value'],
                         'datetime_local':datetime_now,
