@@ -11,36 +11,31 @@
                 {% endif %}
             </div>
             <div class="card-body">
-                <canvas id="pie-chart"></canvas>
+                <div id="vix1"></div>
             </div>
         </div>
     </div>
 </div>
+
 {% endblock content %}
 {% block script %}
 <script>
-
-    var config = {
-      type: 'doughnut',
-      data: {
-        datasets: [{
-          data: {{ data|safe }},
-          backgroundColor: [
-            '#557571', '#d2e603', '#ff4646'
-          ],
-        }],
-        labels: {{ categories|safe }}
-      },
-      options: {
-          responsive: true
+    new roughViz.Donut(
+      {
+        element: '#vix1',
+        data: {
+          labels: {{categories|safe}},
+          values: {{ data|safe }}
+        },
+        width: window.innerWidth / 4,
+        roughness: 2,
+        colors: ['#a1c45a', '#51c2d5', '#f05454',],
+        stroke: 'black',
+        strokeWidth: 2,
+        fillStyle: 'cross-hatch',
+        fillWeight: 1,
       }
-    };
-
-    window.onload = function() {
-      var ctx = document.getElementById('pie-chart').getContext('2d');
-      window.myPie = new Chart(ctx, config);
-    };
-
-  </script>
+    );
+</script>
 
 {% endblock script %}
